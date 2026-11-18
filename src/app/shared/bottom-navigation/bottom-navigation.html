@@ -1,0 +1,9 @@
+<nav class="bottom-navigation" aria-label="Navegação principal">
+  @for (item of navigationItems; track item.route) {
+    @if (item.enabled) {
+      <a class="nav-item" [routerLink]="item.route" routerLinkActive="active">
+        <span>{{ item.label }}</span>
+      </a>
+    }
+  }
+</nav>
