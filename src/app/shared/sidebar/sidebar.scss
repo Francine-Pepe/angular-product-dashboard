@@ -1,0 +1,66 @@
+@use '../../../styles/variables' as *;
+
+.sidebar {
+  display: none;
+
+  @media (min-width: 48rem) {
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: $white;
+    border-right: 1px solid $blue-light;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0 1rem 2.5rem;
+}
+
+.brand-name {
+  color: $green;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.brand-description {
+  color: $text-color;
+  font-size: 0.85rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: $border-radius;
+  color: $text-color;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+
+  &:hover,
+  &.active {
+    background: $green-light;
+    color: $green;
+  }
+
+  &.active {
+    font-weight: 600;
+  }
+}
+
+.nav-icon {
+  font-size: 1.25rem;
+}

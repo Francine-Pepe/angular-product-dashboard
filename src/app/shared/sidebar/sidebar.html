@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="brand">
+    <span class="brand-name">Edna's</span>
+    <span class="brand-description">Gestão de estoque</span>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Navegação principal">
+    @for (item of navigationItems; track item.route) {
+      @if (item.enabled) {
+        <a class="nav-link" [routerLink]="item.route" routerLinkActive="active">
+          <span class="material-symbols-outlined nav-icon">
+            {{ item.icon }}
+          </span>
+
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    }
+  </nav>
+</aside>
