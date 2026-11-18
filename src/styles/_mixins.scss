@@ -1,0 +1,19 @@
+@use 'breakpoints' as *;
+
+@mixin respond-to($device) {
+  @media (min-width: map-get($breakpoints, $device)) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card {
+  background: $white;
+  border-radius: $border-radius;
+  padding: 1.25rem;
+}
