@@ -1,0 +1,14 @@
+.app-layout {
+  min-height: 100vh;
+
+  @media (min-width: 48rem) {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+  }
+}
+
+.main-content {
+  min-width: 0;
+  padding: 2rem 2rem 2rem 4rem;
+
+}
