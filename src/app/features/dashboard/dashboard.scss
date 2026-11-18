@@ -1,0 +1,112 @@
+@use '../../../styles/variables' as *;
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.painel-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-header {
+  h1 {
+    margin: 0;
+    color: $blue;
+    font-size: 1.75rem;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    color: $text-color;
+  }
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 70rem) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.metric-card,
+.action-card {
+  padding: 1.25rem;
+  border: 1px solid $blue-light;
+  border-radius: $border-radius;
+  background: $white;
+}
+
+.metric-card {
+  &.green {
+    border-left: 0.25rem solid $green;
+  }
+
+  &.blue {
+    border-left: 0.25rem solid $blue;
+  }
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  color: $text-color;
+  font-size: 0.9rem;
+}
+
+.metric-value {
+  color: $blue;
+  font-size: 1.75rem;
+}
+
+.metric-description {
+  color: $text-color;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.quick-actions {
+  h2 {
+    color: $blue;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.action-card {
+  display: flex;
+  align-items: center;
+  min-height: 5rem;
+  color: $green;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $green-light;
+  }
+}

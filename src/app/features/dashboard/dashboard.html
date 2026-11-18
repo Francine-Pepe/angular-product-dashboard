@@ -1,0 +1,40 @@
+<section class="dashboard">
+  <header class="dashboard-header">
+    <div class="painel-container">
+      <svg lucideLayoutGrid></svg>
+      <h1>Painel</h1>
+    </div>
+    <p>Bem-vinda ao seu controle de estoque.</p>
+  </header>
+
+  <section class="metrics-grid">
+    @for (metric of metrics; track metric.id) {
+      <article
+        class="metric-card"
+        [class.green]="metric.color === 'green'"
+        [class.blue]="metric.color === 'blue'"
+      >
+        <div class="metric-info">
+          <span class="material-symbols-outlined" metric-icon> {{ metric.icon }} </span>
+          <span class="metric-label">{{ metric.label }}</span>
+          <strong class="metric-value">{{ metric.value }}</strong>
+          <span class="metric-description">
+            {{ metric.description }}
+          </span>
+        </div>
+      </article>
+    }
+  </section>
+
+  <section class="quick-actions">
+    <h2>Ações rápidas</h2>
+
+    <div class="actions-grid">
+      @for (action of actions; track action.id) {
+        <a class="action-card" [routerLink]="action.route">
+          <span>{{ action.label }}</span>
+        </a>
+      }
+    </div>
+  </section>
+</section>
