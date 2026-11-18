@@ -1,0 +1,64 @@
+<section class="products">
+  <header class="products-header">
+    <div>
+      <h1>{{ productsPageText.title }}</h1>
+      <p>{{ productsPageText.subTitle }}</p>
+    </div>
+
+    <button class="add-product-button" id="btn" (click)="openForm()">
+      <span class="material-symbols-outlined"> {{ productsPageText.icon }}</span>
+      <strong>{{ productsPageText.buttonText }}</strong>
+    </button>
+  </header>
+
+  <!-- add product form -->
+
+  @if (showForm) {
+    <section class="product-form">
+      <h2>Novo produto</h2>
+
+      <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+        @for (field of formFields; track field.id) {
+          <label [for]="field.id">
+            {{ field.label }}
+
+            <input
+              [id]="field.id"
+              [type]="field.inputType"
+              [formControlName]="field.formControlName"
+            />
+          </label>
+        }
+
+        <div class="form-actions">
+          <button type="button" (click)="closeForm()">Cancelar</button>
+
+          <button type="submit">Salvar produto</button>
+        </div>
+      </form>
+    </section>
+  }
+
+  <!-- products grid -->
+
+  <div class="products-grid">
+    @for (product of products; track product.id) {
+      <article class="product-card">
+        <div class="product-image">
+          @if (product.photoUrl) {
+            <img [src]="product.photoUrl" [alt]="product.name" />
+          } @else {
+            <span class="material-symbols-outlined"> image </span>
+          }
+        </div>
+
+        <div class="product-info">
+          <span class="product-category">{{ product.category }}</span>
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <span class="product-brand">{{ product.brand }}</span>
+        </div>
+      </article>
+    }
+  </div>
+</section>
