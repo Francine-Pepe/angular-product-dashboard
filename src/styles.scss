@@ -41,20 +41,24 @@ body {
   height: 100%;
 }
 
-button {
+button,
+input {
   background-color: inherit;
   border: 1px solid $green;
   padding: 1rem;
   border-radius: 0.75rem;
+  cursor: pointer;
 
-  span, strong {
+  span,
+  strong {
     color: $green;
   }
 
   &:hover {
     background-color: $green-hover;
 
-    span, strong {
+    span,
+    strong {
       color: $green-light;
     }
   }
@@ -64,4 +68,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
