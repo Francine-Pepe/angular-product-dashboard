@@ -17,3 +17,23 @@
   border-radius: $border-radius;
   padding: 1.25rem;
 }
+
+@mixin column-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+@mixin column-flex-start {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  
+}

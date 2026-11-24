@@ -44,26 +44,32 @@ export const products: Product[] = [
 export const productFormFields: ProductFormField[] = [
   {
     id: 'name',
-    label: 'Nome do produto',
+    label: 'Produto:',
     inputType: 'text',
     formControlName: 'name',
   },
   {
     id: 'description',
-    label: 'Descrição',
+    label: 'Descrição:',
     inputType: 'text',
     formControlName: 'description',
   },
   {
     id: 'category',
-    label: 'Categoria',
+    label: 'Categoria:',
     inputType: 'text',
     formControlName: 'category',
   },
   {
     id: 'brand',
-    label: 'Marca',
+    label: 'Marca:',
     inputType: 'text',
     formControlName: 'brand',
+  },
+  {
+    id: 'photo',
+    label: 'Foto do produto',
+    inputType: 'file',
+    formControlName: 'photo',
   },
 ];

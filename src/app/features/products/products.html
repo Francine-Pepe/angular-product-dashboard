@@ -1,9 +1,12 @@
 <section class="products">
   <header class="products-header">
-    <div>
-      <h1>{{ productsPageText.title }}</h1>
+    <section>
+      <div class="title-container">
+        <span class="material-symbols-outlined"> storefront </span>
+        <h1>{{ productsPageText.title }}</h1>
+      </div>
       <p>{{ productsPageText.subTitle }}</p>
-    </div>
+    </section>
 
     <button class="add-product-button" id="btn" (click)="openForm()">
       <span class="material-symbols-outlined"> {{ productsPageText.icon }}</span>
@@ -18,24 +21,48 @@
       <h2>Novo produto</h2>
 
       <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
-        @for (field of formFields; track field.id) {
-          <label [for]="field.id">
-            {{ field.label }}
+        <section class="form-inputs-container">
+          <div class="form-inputs">
+            @for (field of formFields; track field.id) {
+              <label [for]="field.id">
+                {{ field.label }}
 
-            <input
-              [id]="field.id"
-              [type]="field.inputType"
-              [formControlName]="field.formControlName"
-            />
-          </label>
-        }
+                @if (field.inputType === 'file') {
+                  <input
+                    [id]="field.id"
+                    type="file"
+                    accept="image/*"
+                    (change)="onPhotoSelected($event)"
+                  />
+                } @else {
+                  <input
+                    [id]="field.id"
+                    [type]="field.inputType"
+                    [formControlName]="field.formControlName"
+                  />
+                }
+              </label>
+            }
+            @if (photoPreview) {
+              <div class="photo-preview">
+                <img [src]="photoPreview" alt="Pré-visualização do produto" />
+              </div>
+            }
+          </div>
+        </section>
 
-        <div class="form-actions">
-          <button type="button" (click)="closeForm()">Cancelar</button>
+        <section class="form-actions">
+          <button type="button" (click)="closeForm()" class="button-cancel">
+            <span>Cancelar</span>
+          </button>
 
-          <button type="submit">Salvar produto</button>
-        </div>
+          <button type="submit" class="button-submit">
+            <span>Salvar produto</span>
+          </button>
+        </section>
       </form>
+      <button type="button" (click)="testSupabase()">Testar conexão</button>
+      <button type="button" (click)="loadProducts()">Carregar produtos do banco</button>
     </section>
   }
 
