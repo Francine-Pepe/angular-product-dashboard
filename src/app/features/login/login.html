@@ -1,0 +1,29 @@
+<section class="login-page">
+  <div class="login-card">
+    <header>
+      <h1>Edna's</h1>
+      <p>Gestão de estoque</p>
+    </header>
+
+    <div class="login-intro">
+      <h2>Bem-vinda!</h2>
+      <p>Entre na sua conta para continuar.</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" formControlName="email" placeholder="Seu e-mail" />
+
+      <label for="password">Senha</label>
+      <input id="password" type="password" formControlName="password" placeholder="Sua senha" />
+
+      @if (errorMessage) {
+        <p class="error-message">{{ errorMessage }}</p>
+      }
+
+      <button type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+  </div>
+</section>
